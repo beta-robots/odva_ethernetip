@@ -160,11 +160,10 @@ void Session::close()
   EncapPacket reg_msg(EIP_CMD_UNREGISTER_SESSION, session_id_);
   socket_->send(reg_msg);
 
-  cout << "Session closed" << endl;
-
   socket_->close();
   io_socket_->close();
   session_id_ = 0;
+  cout << "Session closed" << endl;
 }
 
 EncapPacket Session::sendCommand(EncapPacket& req)
