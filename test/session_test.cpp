@@ -410,7 +410,7 @@ TEST_F(SessionTest, test_get_single_attribute)
 
   ts->rx_buffer = buffer(resp_packet);
 
-  EIP_UDINT result = session.getSingleAttribute(0x75, 1, 3, result);
+  EIP_UDINT result = session.getSingleAttribute(0x75, 1, (EIP_USINT)3, result);
 
   // check the unregistration packet
   EXPECT_EQ(48, ts->tx_count);
@@ -553,7 +553,7 @@ TEST_F(SessionTest, test_set_single_attribute)
 
   ts->rx_buffer = buffer(resp_packet);
 
-  session.setSingleAttribute(0x73, 1, 4, (EIP_UINT)1);
+  session.setSingleAttribute(0x73, 1, (EIP_USINT)4, (EIP_UINT)1);
 
   // check the unregistration packet
   EXPECT_EQ(50, ts->tx_count);

@@ -45,7 +45,7 @@ TEST_F(PathTest, test_attribute)
   Path p;
   p.addLogicalClass(0x73);
   p.addLogicalInstance(1);
-  p.addLogicalAttribute(4);
+  p.addLogicalAttribute((EIP_USINT)4);
   EXPECT_EQ(sizeof(d), p.getLength());
   BufferWriter writer(buffer(d));
   p.serialize(writer);
@@ -57,6 +57,7 @@ TEST_F(PathTest, test_attribute)
   EXPECT_EQ(   1, d[4]);
   EXPECT_EQ(0x30, d[5]);
   EXPECT_EQ(   4, d[6]);
+  std::cout << p; 
 }
 
 TEST_F(PathTest, test_connection)

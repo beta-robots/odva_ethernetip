@@ -75,4 +75,3 @@ if (CATKIN_ENABLE_TESTING)
   )
   target_link_libraries(${PROJECT_NAME}-test ${Boost_LIBRARIES} ${PROJECT_NAME})
 endif()
-

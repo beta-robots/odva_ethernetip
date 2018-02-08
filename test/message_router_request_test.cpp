@@ -71,7 +71,7 @@ TEST_F(MessageRouterRequestTest, test_serialize_with_data)
   MessageRouterRequest mrr(0xAA);
   mrr.getPath().addLogicalClass(0x73);
   mrr.getPath().addLogicalInstance(1);
-  mrr.getPath().addLogicalAttribute(4);
+  mrr.getPath().addLogicalAttribute((EIP_USINT)4);
   mrr.setData(sb);
   EXPECT_EQ(sizeof(d), mrr.getLength());
   BufferWriter writer(buffer(d));

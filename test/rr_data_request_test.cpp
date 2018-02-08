@@ -95,7 +95,7 @@ TEST_F(RRDataRequestTest, test_serialize_with_data)
   shared_ptr<SerializableBuffer> sb = make_shared<SerializableBuffer>(buffer(sample_data));
   data.getPath().addLogicalClass(0x73);
   data.getPath().addLogicalInstance(1);
-  data.getPath().addLogicalAttribute(4);
+  data.getPath().addLogicalAttribute((EIP_USINT)4);
   data.setMRData(sb);
 
   EXPECT_EQ(sizeof(d), data.getLength());
@@ -149,7 +149,7 @@ TEST_F(RRDataRequestTest, test_serialize_with_data_via_constructor)
 
   EIP_BYTE sample_data[] = {0xEF, 0xBE, 0xAD, 0xDE};
   shared_ptr<SerializableBuffer> sb = make_shared<SerializableBuffer>(buffer(sample_data));
-  RRDataRequest data(0xAA, Path(0x73, 1, 4), sb);
+  RRDataRequest data(0xAA, Path(0x73, 1, (EIP_USINT)4), sb);
 
   EXPECT_EQ(sizeof(d), data.getLength());
   BufferWriter writer(buffer(d));
